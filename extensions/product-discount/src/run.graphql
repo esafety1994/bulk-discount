@@ -1,0 +1,30 @@
+query RunInput {
+  cart {
+    buyerIdentity {
+      customer{
+        id
+        metafield(namespace: "custom", key: "b2b_status") {
+          value
+        }
+      }
+      isAuthenticated
+    }
+    lines {
+      id
+      quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+          title
+          product {
+            id
+            title
+            metafield(namespace: "custom", key: "tiered_discounts_qty") {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}
