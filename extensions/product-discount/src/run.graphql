@@ -1,25 +1,40 @@
 query RunInput {
+  shop {
+    b2bTierMap: metafield(namespace: "custom", key: "b2b_tier_map") {
+      value
+    }
+  }
   cart {
     buyerIdentity {
-      customer{
-        id
-        metafield(namespace: "custom", key: "b2b_status") {
-          value
-        }
-      }
       isAuthenticated
+      customer {
+        isB2B: hasAnyTag(tags: ["B2B", "b2b"])
+        isTrade: hasAnyTag(tags: ["Trade Account", "trade account"])
+        isWholesale: hasAnyTag(tags: ["Wholesale Account", "wholesale account"])
+      }
     }
     lines {
       id
       quantity
+      isAddon: attribute(key: "_is_addon") {
+        value
+      }
+      cost {
+        amountPerQuantity {
+          amount
+        }
+        compareAtAmountPerQuantity {
+          amount
+        }
+      }
       merchandise {
         ... on ProductVariant {
-          id
-          title
           product {
-            id
-            title
-            metafield(namespace: "custom", key: "tiered_discounts_qty") {
+            isFreeFixing: hasAnyTag(tags: ["Asphalt Fixing", "Dynabolt Fixing"])
+            tieredDiscounts: metafield(namespace: "custom", key: "tiered_discounts_qty") {
+              value
+            }
+            b2bCategory: metafield(namespace: "custom", key: "b2b_category") {
               value
             }
           }

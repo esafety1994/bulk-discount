@@ -1,0 +1,4 @@
+{
+  "name": "B2B Price Guard",
+  "description": "Enforces min(tier, sale) pricing for B2B customers"
+}

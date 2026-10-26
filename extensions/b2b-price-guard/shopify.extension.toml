@@ -1,0 +1,17 @@
+api_version = "2026-04"
+
+[[extensions]]
+name = "B2B Price Guard"
+handle = "b2b-price-guard"
+uid = "239c25e3-bc8c-711d-52bd-3c51706b59761013783a"
+type = "function"
+description = "Enforces min(tier_off_compare_at, sale_price) for B2B customers on discounted products so Shopify's default stacking (catalog % on top of sale) does not over-discount."
+
+  [[extensions.targeting]]
+  target = "cart.transform.run"
+  input_query = "src/run.graphql"
+  export = "run"
+
+  [extensions.build]
+  command = ""
+  path = "dist/function.wasm"

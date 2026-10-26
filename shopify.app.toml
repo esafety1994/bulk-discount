@@ -1,16 +1,15 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "e1dd95fc8eef715228e04e303043249a"
+client_id = "0f3c62240d8157ca45878f6e280554c7"
 application_url = "https://shopify.dev/apps/default-app-home"
 embedded = true
-name = "bulk-discount"
-handle = "bulk-discount-23"
+name = "bulk-discount-v2"
+handle = "bulk-discount-v2"
 
 [build]
-include_config_on_deploy = true
 
 [webhooks]
-api_version = "2025-04"
+api_version = "2026-04"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes

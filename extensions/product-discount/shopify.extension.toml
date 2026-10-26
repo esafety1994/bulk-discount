@@ -1,8 +1,10 @@
-api_version = "2025-01"
+api_version = "2026-04"
 
 [[extensions]]
-name = "t:name"
-handle = "product-discount"
+name = "-"
+handle = "bulk-discount-fn"
+
+uid = "d0f68f29-1841-f67e-43fd-d817ad592eda03aa57c0"
 type = "function"
 
 description = "t:description"
@@ -16,6 +18,3 @@ description = "t:description"
   command = ""
   path = "dist/function.wasm"
 
-  [extensions.ui.paths]
-  create = "/"
-  details = "/"

@@ -1,0 +1,40 @@
+query DeliveryInput {
+  cart {
+    buyerIdentity {
+      customer {
+        isShippingTest: hasAnyTag(tags: ["shipping-test"])
+        isB2B: hasAnyTag(tags: ["B2B"])
+      }
+    }
+    lines {
+      id
+      merchandise {
+        ... on ProductVariant {
+          requiresShipping
+          product {
+            isBulky: hasAnyTag(tags: ["Bulky", "bulky"])
+          }
+        }
+      }
+    }
+    cost {
+      subtotalAmount {
+        amount
+      }
+    }
+    deliveryGroups {
+      id
+      deliveryAddress {
+        provinceCode
+      }
+      deliveryOptions {
+        cost {
+          amount
+        }
+      }
+    }
+  }
+  discount {
+    discountClasses
+  }
+}
